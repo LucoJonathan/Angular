@@ -1,12 +1,19 @@
 import {Routes} from '@angular/router';
-import {HomeComponent} from '../views/home/home.component';
 
 export const routes: Routes = [
   {
-    path: "", // Le chemin
-    component: HomeComponent // Le composant
+    path: "",
+    pathMatch: "full",
+    redirectTo: "home",
+
+  },
+  {
+    path: "home", // Le chemin
+    loadComponent: () => import('../views/home/home.component').then(m => m.HomeComponent)
+  },
+  {
+    path: "**",
+    loadComponent: () => import('../views/not-found/not-found.component').then(m => m.NotFoundComponent)
   }
 ];
-
-
 // nomDeVariable : TypeDeVariable
