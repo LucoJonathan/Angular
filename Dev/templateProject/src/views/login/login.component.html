@@ -1,0 +1,9 @@
+<form (submit)="onSubmit()">
+  <label>
+      <input type="text" name="email" [(ngModel)]="credentials.password">
+  </label>
+    <label>Password :
+      <input type="password" name="password" [(ngModel)]="credentials.password">
+    </label>
+  <input type="submit" value="Se Connecter">
+</form>
