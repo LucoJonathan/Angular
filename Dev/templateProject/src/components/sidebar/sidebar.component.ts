@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -11,5 +11,5 @@ import {RouterLink} from '@angular/router';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-
+  parentValue: string = "parentValue"
 }
