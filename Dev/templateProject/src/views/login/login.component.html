@@ -1,9 +1,15 @@
-<form (submit)="onSubmit()">
-  <label>
-      <input type="text" name="email" [(ngModel)]="credentials.password">
+<form (submit)="onSubmit(form)" #form>
+  <label> Email :
+    <input [class]="{'invalid' : !mail.checkValidity()}" type="email" name="email" [(ngModel)]="credentials.email" required #mail>
+    @if (!mail.checkValidity()) {
+      <p>Email invalide</p>
+    }
   </label>
-    <label>Password :
-      <input type="password" name="password" [(ngModel)]="credentials.password">
-    </label>
-  <input type="submit" value="Se Connecter">
+  <label> Password :
+    <input [class.invalid]="!pass.checkValidity()" type="password" name="pass" [(ngModel)]="credentials.password" required minlength="6" #pass>
+    @if (!pass.checkValidity()) {
+      <p>Mot de passe invalide</p>
+    }
+  </label>
+  <input [disabled]="!form.checkValidity()" type="submit" value="Se Connecter">
 </form>

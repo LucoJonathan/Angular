@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -14,8 +14,11 @@ export class LoginComponent {
     password: ""
   }
 
-  onSubmit() {
-    console.log(this.credentials)
+  onSubmit(form: HTMLFormElement) {
+    if(form.checkValidity()) {
+      console.log(this.credentials)
+      form.reset()
+    }
   }
 }
 

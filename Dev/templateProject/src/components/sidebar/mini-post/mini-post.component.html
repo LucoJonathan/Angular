@@ -1,0 +1,13 @@
+<article>
+  <a [href]=minipost.link class="image">
+    @if (minipost.src) {
+      <img src="assets/images/{{ minipost.src}}" [alt]="minipost.alt"/>
+    } @else {
+      <p>Article sans image</p>
+    }
+  </a>
+  <p>{{ minipost.text }}</p>
+</article>
+
+
+
