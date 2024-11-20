@@ -25,6 +25,10 @@ export const routes: Routes = [
     loadComponent: () => import('../views/login/login.component').then(m => m.LoginComponent)
   },
   {
+    path:"form-control",
+    loadComponent: () => import('../views/form-control/form-control.component').then(m => m.FormControlComponent)
+  },
+  {
     path: "**",
     loadComponent: () => import('../views/not-found/not-found.component').then(m => m.NotFoundComponent)
   }
