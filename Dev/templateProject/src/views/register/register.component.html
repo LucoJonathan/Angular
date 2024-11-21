@@ -1,0 +1,24 @@
+<form [formGroup]="form"  (submit)="onSubmit()">
+  <label> Username :
+    <input type="text" formControlName="username">
+    <p>Username required</p>
+  </label>
+  <label> Email :
+    <input type="email" formControlName="email">
+  </label>
+  <label> Password :
+    <input type="password" formControlName="password">
+  </label>
+  <label> Confirm Password :
+    <input type="password"  [formControl]="confirmPasswordControl">
+  </label>
+  <ul class="actions">
+    <li>
+      <button class="button" type="submit">Send</button>
+    </li>
+    <li>
+      <button class="button" type="reset">Reset</button>
+    </li>
+  </ul>
+</form>
+<p>Value : {{ form.value | json }}</p>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-form-control',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, JsonPipe],
   templateUrl: './form-control.component.html',
   styleUrl: './form-control.component.css'
 })

@@ -6,6 +6,7 @@
   <p>Valid : {{ email.valid }}</p>
   <p>Touched : {{ !email.untouched }}</p>
   <p>Dirty :{{ email.dirty}}</p>
+  <p>Errors : {{ email.errors | json}}</p>
   @if (isInvalidEmail()){
     <p [style.color]="'red'">Valeur invalide</p>
   }
@@ -17,4 +18,8 @@
   @if (isInvalidPassword()){
     <p [style.color]="'red'">Valeur invalide</p>
   }
+  <ul class="actions">
+    <li><button class="button" [disabled]="(email.invalid && password.invalid)">Send</button></li>
+    <li><button class="button" (click)="email.reset(); password.reset()">Reset</button></li>
+  </ul>
 </div>
