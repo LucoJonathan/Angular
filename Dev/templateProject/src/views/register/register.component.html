@@ -1,16 +1,26 @@
-<form [formGroup]="form"  (submit)="onSubmit()">
+<form (submit)="onSubmit()" [formGroup]="form">
   <label> Username :
-    <input type="text" formControlName="username">
-    <p>Username required</p>
+    <input [class.invalid]="isInvalid('username')" formControlName="username" type="text">
+    @if (form.get ( 'username' ); as username) {
+      @if ((username.touched || username.dirty) && username.invalid) {
+        <p>Username required</p>
+      }
+    }
+
   </label>
   <label> Email :
-    <input type="email" formControlName="email">
+    <input [class.invalid]="isInvalid('email')" formControlName="email" type="email">
+    @if (form.get ( 'email' ); as email) {
+      @if ((email.touched || email.dirty) && email.invalid) {
+        <p>Email required</p>
+      }
+    }
   </label>
   <label> Password :
-    <input type="password" formControlName="password">
+    <input [class.invalid]="isInvalid('password')" formControlName="password" type="password">
   </label>
   <label> Confirm Password :
-    <input type="password"  [formControl]="confirmPasswordControl">
+    <input [formControl]="confirmPasswordControl" type="password">
   </label>
   <ul class="actions">
     <li>
@@ -21,4 +31,3 @@
     </li>
   </ul>
 </form>
-<p>Value : {{ form.value | json }}</p>
