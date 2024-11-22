@@ -5,7 +5,22 @@
       "password": "$2a$10$EE39QEpMoh5inMBQI.rPFOI5vmTS9vTrCxnUE47EYPsjg1cNiuEbe",
       "id": 1,
       "username": "Jonathan"
+    },
+    {
+      "email": "test@dawan.fr",
+      "password": "$2a$10$u7wj.G1CIYSCJrdVk1E66ezkCOXgIjZKcca8xoo2Ga/M91HUMOh76",
+      "id": 2,
+      "username": "test"
     }
   ],
-  "articles": []
+  "articles": [
+    {
+      "id": 1,
+      "src": "pic01.jpg",
+      "lien": "voici le lien",
+      "titre": "Test Article",
+      "alt": "test",
+      "description": "test"
+    }
+  ]
 }

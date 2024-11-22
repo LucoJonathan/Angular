@@ -59,7 +59,7 @@
     <h2>Ipsum sed dolor</h2>
   </header>
   <div class="posts">
-    @for (article of data; track $index) {
+    @for (article of data | async ; track $index) {
       @if(article.src) {
         <app-article [article]="article"/>
       }
