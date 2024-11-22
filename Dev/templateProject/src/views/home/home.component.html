@@ -59,9 +59,9 @@
     <h2>Ipsum sed dolor</h2>
   </header>
   <div class="posts">
-    @for (article of data | async ; track $index) {
+    @for (article of data| async ; track $index) {
       @if(article.src) {
-        <app-article [article]="article"/>
+        <app-article [article]="article" (articleDeleted)="data = service.all()" />
       }
     } @empty {
       <p>Aucun articles</p>

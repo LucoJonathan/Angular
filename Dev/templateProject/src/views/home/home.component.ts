@@ -26,8 +26,7 @@ export class HomeComponent {
   constructor(service: ArticleService) {
     this.data = service.all()
   }*/
-
-
-  data = inject(ArticleService).all()
+  protected service: ArticleService = inject(ArticleService)
+  data = this.service.all()
 
 }

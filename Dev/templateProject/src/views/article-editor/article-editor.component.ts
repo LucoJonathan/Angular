@@ -35,6 +35,6 @@ export class ArticleEditorComponent extends AbstractFormComponent {
   private router: Router = inject(Router)
 
   onSubmit$(): void {
-    this.service.save(this.form.value).subscribe()
+    this.service.save(this.form.value).subscribe(() => this.router.navigate(['/home']))
   }
 }
