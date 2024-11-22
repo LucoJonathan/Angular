@@ -39,7 +39,7 @@ export const routes: Routes = [
       .then(m => m.RegisterComponent)
   },
   {
-    path: "editor",
+    path: "editor/:id",
     loadComponent: () => import('../views/article-editor/article-editor.component')
       .then(m => m.ArticleEditorComponent)
   },

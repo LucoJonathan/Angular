@@ -1,13 +1,16 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {Article} from '../article';
 import {ArticleService} from '../../../service/article.service';
+import {RouterLink} from '@angular/router';
 
 
 
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
 })
