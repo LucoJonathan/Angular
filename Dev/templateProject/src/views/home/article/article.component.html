@@ -1,10 +1,8 @@
 <article>
-  <a [href]=article.lien class="image">
-    <img src="assets/images/{{article.src}}"
-         [alt]="article.alt"/></a>
-  <h3>{{ article.titre }}</h3>
-  <p>{{ article.description }}</p>
+  <a [href]="article.lien" class="image"><img src="assets/images/{{article.src}}" [alt]="article.alt" /></a>
+  <h3>{{article.titre}}</h3>
+  <p>{{article.description}}</p>
   <ul class="actions">
-    <li><a class="button" href="#">More</a></li>
+    <li><a href="#" class="button">More</a></li>
   </ul>
 </article>

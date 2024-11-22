@@ -1,0 +1,39 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <label> Titre :
+    <input [class.invalid]="isInvalid('titre')" type="text" formControlName="titre">
+    @if(hasError('titre','required')) {
+      <p>Titre requis</p>
+    }
+  </label>
+  <label> Lien :
+    <input [class.invalid]="isInvalid('lien')" type="text" formControlName="lien">
+    @if(hasError('lien','required')) {
+      <p>Lien requis</p>
+    }
+  </label>
+  <label> Image :
+    <select formControlName="src">
+      <option value="null">Pas d'image</option>
+      @for(pic of pics; track $index) {
+        <option [value]="pic">{{pic}}</option>
+      }
+
+    </select>
+  </label>
+  <label> Alt :
+    <input [class.invalid]="isInvalid('alt')" type="text" formControlName="alt">
+    @if(hasError('alt','required')) {
+      <p>Alt requis</p>
+    }
+  </label>
+  <label> Description :
+    <textarea [class.invalid]="isInvalid('description')" formControlName="description"></textarea>
+    @if(hasError('description','required')) {
+      <p>Description requise</p>
+    }
+  </label>
+  <ul class="actions">
+    <li><button class="button" type="submit">Send</button></li>
+    <li><button class="button" type="reset">Reset</button></li>
+  </ul>
+</form>

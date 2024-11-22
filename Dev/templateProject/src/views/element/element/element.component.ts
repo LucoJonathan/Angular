@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-element',
+  selector: 'app-elements',
   standalone: true,
   imports: [],
   templateUrl: './element.component.html',
   styleUrl: './element.component.css'
 })
-export class ElementComponent {
+export class ElementsComponent {
 
 }

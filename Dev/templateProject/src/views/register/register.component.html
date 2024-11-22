@@ -1,33 +1,41 @@
-<form (submit)="onSubmit()" [formGroup]="form">
+<form [formGroup]="form" (submit)="onSubmit()">
   <label> Username :
-    <input [class.invalid]="isInvalid('username')" formControlName="username" type="text">
-    @if (form.get ( 'username' ); as username) {
-      @if ((username.touched || username.dirty) && username.invalid) {
+    <input [class.invalid]="isInvalid('username')"  type="text" formControlName="username">
+    @if(form.get('username'); as username) {
+      @if((username.touched || username.dirty) && username.invalid) {
         <p>Username required</p>
       }
     }
-
   </label>
   <label> Email :
-    <input [class.invalid]="isInvalid('email')" formControlName="email" type="email">
-    @if (form.get ( 'email' ); as email) {
-      @if ((email.touched || email.dirty) && email.invalid) {
-        <p>Email required</p>
-      }
+    <input [class.invalid]="isInvalid('email')" type="email" formControlName="email">
+    @if(isInvalid('email')) {
+      <p>Invalid Email</p>
     }
   </label>
   <label> Password :
-    <input [class.invalid]="isInvalid('password')" formControlName="password" type="password">
+    <input [class.invalid]="isInvalid('password') || isInvalid(confirmPasswordControl)" type="password" formControlName="password">
+    @if (hasError('password','required')) {
+      <p>Required Password</p>
+    }
+    @if (hasError('password','minlength')) {
+      <p>Password too short</p>
+    }
+    @if (hasError(confirmPasswordControl,'mustmatch')) {
+      <p>Password and Confirm Password must match</p>
+    }
   </label>
   <label> Confirm Password :
-    <input [formControl]="confirmPasswordControl" type="password">
+    <input [class.invalid]="isInvalid(confirmPasswordControl)" type="password" [formControl]="confirmPasswordControl">
+    @if (hasError(confirmPasswordControl,'required')) {
+      <p>Required Confirm Password</p>
+    }
+    @if (hasError(confirmPasswordControl,'mustmatch')) {
+      <p>Password and Confirm Password must match</p>
+    }
   </label>
   <ul class="actions">
-    <li>
-      <button class="button" type="submit">Send</button>
-    </li>
-    <li>
-      <button class="button" type="reset">Reset</button>
-    </li>
+    <li><button class="button" type="submit">Send</button></li>
+    <li><button class="button" type="reset">Reset</button></li>
   </ul>
 </form>

@@ -1,6 +1,17 @@
-import {Component} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import {JsonPipe} from '@angular/common';
+import {AbstractFormComponent} from '../../tools/abstract-form-component';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -9,26 +20,31 @@ import {JsonPipe} from '@angular/common';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
-  confirmPasswordControl: FormControl = new FormControl<any>("")
+export class RegisterComponent extends AbstractFormComponent {
+
+  passwordControl: FormControl = new FormControl("", {validators: [
+      Validators.required,
+      //this.password,
+      Validators.minLength(6)
+    ]})
+  confirmPasswordControl : FormControl = new FormControl<any>("", {validators: [
+      Validators.required,
+      this.mustMatch(this.passwordControl)
+    ]})
 
   form: FormGroup = new FormGroup<any>({
     id: new FormControl(0),
     username: new FormControl("", {validators: [Validators.required]}),
     email: new FormControl("", {validators: [Validators.required, Validators.email]}),
-    password: new FormControl("", {validators: [Validators.required, Validators.minLength(6)]})
+    password: this.passwordControl
   })
 
-  onSubmit() {
-    console.log("USER : ", this.form.value)
+  constructor(private http: HttpClient) {
+    super();
   }
 
-  isInvalid(name : string) {
-    const control = this.form.get(name)
-/*    return control ? (
-      (control.dirty || control.touched) && control.invalid) : undefined*/
-    if(!control) throw new Error("Can't find control : " + name)
-    return (control.dirty || control.touched) && control.invalid
+  onSubmit$(): void {
+    this.http.post("http://localhost:3000/register",this.form.value).subscribe() // .subscribe pour envoyer la requête si il est pas la c'est juste la prépa
   }
 }
 

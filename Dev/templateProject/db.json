@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "jojoluco@gmail.com",
+      "password": "$2a$10$EE39QEpMoh5inMBQI.rPFOI5vmTS9vTrCxnUE47EYPsjg1cNiuEbe",
+      "id": 1,
+      "username": "Jonathan"
+    }
+  ],
+  "articles": []
+}

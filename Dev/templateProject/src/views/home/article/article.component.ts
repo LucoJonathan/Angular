@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {Article} from '../home.component';
+import {Article} from '../article';
+
+
 
 @Component({
   selector: 'app-article',
@@ -9,7 +11,5 @@ import {Article} from '../home.component';
   styleUrl: './article.component.css'
 })
 export class ArticleComponent {
-
-    @Input({required: true})  article! : Article
-
+  @Input({required: true}) article! : Article
 }
