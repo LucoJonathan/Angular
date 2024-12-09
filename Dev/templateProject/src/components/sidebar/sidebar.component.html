@@ -13,13 +13,22 @@
         <h2>Menu</h2>
       </header>
       <ul>
+        <!--Toujours la -->
         <li><a routerLink="home">Homepage</a></li>
         <li><a routerLink="generic">Generic</a></li>
         <li><a routerLink="elements">Elements</a></li>
-        <li><a routerLink="login">Login</a></li>
-        <li><a routerLink="editor/0">Nouvel Article</a></li>
-        <li><a routerLink="register">Register</a></li>
-        <li><a routerLink="form-control">Form Control</a></li>
+        @if (auth.isLogged) {
+          <!-- Connecté -->
+          <li><a routerLink="form-control">Form Control</a></li>
+          <li><a routerLink="editor/0">Nouvel Article</a></li>
+          <li>
+            <button (click)="auth.logout()">Logout</button>
+          </li>
+        } @else {
+          <!-- Déconnecté -->
+          <li><a routerLink="login">Login</a></li>
+          <li><a routerLink="register">Register</a></li>
+        }
       </ul>
     </nav>
     <!-- Section -->
@@ -30,7 +39,7 @@
       <div class="mini-posts">
         <!--        <app-mini-post [minipost]="minipost1" />-->
         @for (post of miniposts; track $index) {
-          <app-mini-post [minipost]="post" />
+          <app-mini-post [minipost]="post"/>
         } @empty {
           <p>Pas d'articles</p>
         }

@@ -41,7 +41,8 @@ export const routes: Routes = [
   {
     path: "editor/:id",
     loadComponent: () => import('../views/article-editor/article-editor.component')
-      .then(m => m.ArticleEditorComponent)
+      .then(m => m.ArticleEditorComponent),
+    canMatch: []
   },
   {
     path: "**", // Wildcard (toute valeur)

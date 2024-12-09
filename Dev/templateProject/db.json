@@ -1,15 +1,9 @@
 {
   "users": [
     {
-      "email": "jojoluco@gmail.com",
-      "password": "$2a$10$EE39QEpMoh5inMBQI.rPFOI5vmTS9vTrCxnUE47EYPsjg1cNiuEbe",
+      "email": "test@gmail.com",
+      "password": "$2a$10$6Sfoz/5N4YJKhj2Cn872TeW0xwhNt.gkdD5QSQ1czJ2vL9Y3MFmCi",
       "id": 1,
-      "username": "Jonathan"
-    },
-    {
-      "email": "test@dawan.fr",
-      "password": "$2a$10$u7wj.G1CIYSCJrdVk1E66ezkCOXgIjZKcca8xoo2Ga/M91HUMOh76",
-      "id": 2,
       "username": "test"
     }
   ],
